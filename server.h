@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 02:08:07 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/03 11:48:31 by mahansal         ###   ########.fr       */
+/*   Created: 2022/12/03 11:49:12 by mahansal          #+#    #+#             */
+/*   Updated: 2022/12/03 11:50:18 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#ifndef SERVER_H
+# define SERVER_H
 
-int main()
-{
-	return (0);
-}
+#include "minitalk_utils.h"
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <signal.h>
+
+#endif

@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   minitalk_utils.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 02:08:07 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/03 11:48:31 by mahansal         ###   ########.fr       */
+/*   Created: 2022/12/03 11:39:38 by mahansal          #+#    #+#             */
+/*   Updated: 2022/12/03 11:47:08 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#ifndef MINITALK_UTILS_H
+# define MINITALK_UTILS_H
 
-int main()
-{
-	return (0);
-}
+#include <unistd.h>
+
+void	ft_putchar_fd(int fd, char c);
+void	ft_putstr_fd(int fd, char *str);
+void	ft_putnbr_fd(int fd, int n);
+
+#endif

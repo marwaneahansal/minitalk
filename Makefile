@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 02:07:58 by mahansal          #+#    #+#              #
-#    Updated: 2022/12/03 02:08:04 by mahansal         ###   ########.fr        #
+#    Updated: 2022/12/03 11:53:40 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,23 +14,28 @@ CC				= cc
 
 NAME			= minitalk.a
 
+SERVER_NAME		= server
+
 CLIENT_NAME 	= client
 
 SERVER_NAME 	= server
 
-SRCS 			= 
+SERVER_SRCS 	= server.c minitalk_utils.c
 
-OBJS 			= $(SRCS:.c=.o)
+SERVER_OBJS 	= $(SERVER_SRCS:.c=.o)
 
 CFLAGS 			= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-%.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+# %.o: %.c 
+# 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
+
+$(SERVER_NAME): $(SERVER_OBJS)
+	$(CC) $(CFLAGS) $(SERVER_OBJS) -o $(SERVER_NAME)
 
 clean:
 	rm -f $(OBJS)
