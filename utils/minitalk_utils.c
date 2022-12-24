@@ -6,11 +6,11 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 11:38:01 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/03 11:48:05 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:51:40 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_utils.h"
+#include "../includes/minitalk_utils.h"
 
 void	ft_putchar_fd(int fd, char c)
 {

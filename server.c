@@ -6,11 +6,11 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:16 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/22 05:27:17 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/24 20:49:16 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "server.h"
+#include "./includes/server.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,9 +18,7 @@ void	signal_handler(int signal, siginfo_t *info, void *other)
 {
 	static char c;
 	static int i;
-	// 00000000
-	// 01100001
-
+	
 	if (signal == SIGUSR1)
 	{
 		// ft_putchar_fd(1, '1');

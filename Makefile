@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 02:07:58 by mahansal          #+#    #+#              #
-#    Updated: 2022/12/22 02:29:36 by mahansal         ###   ########.fr        #
+#    Updated: 2022/12/24 20:55:06 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ CLIENT_NAME 	= client
 
 SERVER_NAME 	= server
 
-SERVER_SRCS 	= server.c minitalk_utils.c
+SERVER_SRCS 	= server.c utils/minitalk_utils.c
 
 SERVER_OBJS 	= $(SERVER_SRCS:.c=.o)
 
-CLIENT_SRCS 	= client.c minitalk_utils.c
+CLIENT_SRCS 	= client.c utils/minitalk_utils.c utils/ft_atoi.c
 
 CLIENT_OBJS 	= $(CLIENT_SRCS:.c=.o)
 
