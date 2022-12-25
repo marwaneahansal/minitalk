@@ -4,3 +4,5 @@
 *.out
 client
 server
+client_bonus
+server_bonus

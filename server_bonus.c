@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:16 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/25 02:18:37 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/25 02:21:03 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	signal_handler(int signal, siginfo_t *info, void *other)
 	static int 	i;
 	
 	(void) other;
-	(void) info;
 	if (signal == SIGUSR1)
 		c = c | 1;
 	else if (signal == SIGUSR2)
@@ -34,6 +33,7 @@ void	signal_handler(int signal, siginfo_t *info, void *other)
 		c = 0;
 		i = 0;
 	}
+	kill(info->si_pid, SIGUSR1);
 }
 
 int main(void)
@@ -46,7 +46,7 @@ int main(void)
 	ft_putnbr_fd(1, server_pid);
 	ft_putchar_fd(1, '\n');
 
-	s_sigaction.sa_flags = SA_RESTART;
+	s_sigaction.sa_flags = SA_RESTART | SA_NODEFER;
 	s_sigaction.sa_sigaction = signal_handler;
 	
 	sigemptyset(&(s_sigaction.sa_mask));

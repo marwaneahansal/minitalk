@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 02:08:07 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/25 02:16:40 by mahansal         ###   ########.fr       */
+/*   Created: 2022/12/25 01:55:12 by mahansal          #+#    #+#             */
+/*   Updated: 2022/12/25 01:57:16 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,34 @@ void	send_msg(pid_t server_pid, char *msg)
 		i++;
 	}
 	handle_char(server_pid, msg[i]);
-	handle_char(server_pid, '\n');
+}
+
+typedef struct s_ss {
+	int len;
+	int recived_signals;
+} t_ss;
+
+t_ss *st;
+
+
+void	signal_handler()
+{
+	st->recived_signals++;
+	if (st->recived_signals == st->len * 8)
+	{
+		ft_putstr_fd(1, "\n Message sent successfully\n");
+		exit(0);
+	}
 }
 
 int main(int argc, char *argv[])
 {
 	pid_t				server_pid;
-	                                                                                                                           
+	struct	sigaction	s_sigaction;
+	
+	st = malloc(sizeof(t_ss));
+	st->recived_signals = 0;
+	st->len = 0;                                                                                                                             
 	if (argc != 3)
 	{
 		ft_putstr_fd(2, "Program takes at least 2 arguments (Server PID and the message)!\n");
@@ -62,6 +83,13 @@ int main(int argc, char *argv[])
 		ft_putstr_fd(2, "Server PID is wrong !");
 		exit(1);
 	}
+	s_sigaction.sa_flags = SA_NODEFER;
+	s_sigaction.sa_sigaction = signal_handler;
+	sigemptyset(&(s_sigaction.sa_mask));
+	sigaction(SIGUSR1, &s_sigaction, 0);
+	st->len = strlen(argv[2]);
 	send_msg(server_pid, argv[2]);
+	while (1)
+		sleep(1);
 	return (0);
 }
