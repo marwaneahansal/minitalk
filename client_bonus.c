@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:55:12 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/27 23:55:00 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/28 02:17:20 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	send_msg(pid_t server_pid, char *msg)
 		i++;
 	}
 	handle_char(server_pid, msg[i]);
+	handle_char(server_pid, '\n');
 }
 
 void	signal_handler()
