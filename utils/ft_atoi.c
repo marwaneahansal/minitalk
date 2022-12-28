@@ -6,12 +6,10 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:19:16 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/24 20:55:32 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/28 02:05:45 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <limits.h>
 #include "../includes/minitalk_utils.h"
 
 int	is_whitespace(char c)
@@ -21,19 +19,20 @@ int	is_whitespace(char c)
 	return (-1);
 }
 
-int	check_long(int number, char n, int sign)
+int	check_long(long long number, char n, int sign)
 {
 	int	is_long;
 
 	is_long = 1;
-	if ((unsigned long) number * 10 + (n - '0')
+	if (number * 10 + (n - '0')
 		> 9223372036854775807 && sign == 1)
 		is_long = -1;
-	else if ((unsigned long) number * 10 + (n - '0')
+	else if (number * 10 + (n - '0')
 		> 9223372036854775807 && sign == -1)
 		is_long = 0;
 	return (is_long);
 }
+
 
 void	skip_sign_and_spaces(const char *str, int *index, int *sign)
 {
@@ -47,7 +46,7 @@ void	skip_sign_and_spaces(const char *str, int *index, int *sign)
 	}
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int			index;
 	int			sign;

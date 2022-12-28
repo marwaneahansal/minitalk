@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 11:38:01 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/24 20:51:40 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/27 23:52:31 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,14 @@ void	ft_putnbr_fd(int fd, int n)
 			ft_putchar_fd(fd, n % 10 + '0');
 		}
 	}
+}
+
+size_t	ft_strlen(char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

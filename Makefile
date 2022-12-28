@@ -6,7 +6,7 @@
 #    By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 02:07:58 by mahansal          #+#    #+#              #
-#    Updated: 2022/12/25 02:04:27 by mahansal         ###   ########.fr        #
+#    Updated: 2022/12/28 00:38:09 by mahansal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,6 @@ CLIENT_BONUS_OBJS 	= $(CLIENT_BONUS_SRCS:.c=.o)
 CFLAGS 				= -Wall -Wextra -Werror
 
 all: $(NAME)
-
-# %.o: %.c 
-# 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(SERVER_NAME) $(CLIENT_NAME)
 

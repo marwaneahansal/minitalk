@@ -6,29 +6,28 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:07 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/25 02:16:40 by mahansal         ###   ########.fr       */
+/*   Updated: 2022/12/27 23:49:21 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/client.h"
-#include <stdio.h>
-#include <string.h>
 
 void handle_char(int pid, char c)
 {
     int i;
-    unsigned char mask;
+	int mod;
 
     i = 0;
-    mask = 0b10000000;
+	mod = 0;
     while (i < 8)
     {
-        if (mask & c)
-            kill(pid, SIGUSR1);
+		mod = c % 2;
+        if (mod)
+			kill(pid, SIGUSR1);
         else
             kill(pid, SIGUSR2);
         i++;
-        mask = mask >> 1;
+		c = c / 2;
 		usleep(100);
     }
 }
@@ -49,7 +48,7 @@ void	send_msg(pid_t server_pid, char *msg)
 
 int main(int argc, char *argv[])
 {
-	pid_t				server_pid;
+	pid_t	server_pid;
 	                                                                                                                           
 	if (argc != 3)
 	{
