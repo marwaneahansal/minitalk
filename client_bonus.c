@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:55:12 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/28 02:17:20 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/03 05:12:54 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	signal(SIGUSR1, signal_handler);
-	st->len = ft_strlen(argv[2]);
+	st->len = ft_strlen(argv[2]) + 2;
 	send_msg(server_pid, argv[2]);
 	while (1)
 		sleep(1);
