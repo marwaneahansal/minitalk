@@ -6,30 +6,30 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:07 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/27 23:49:21 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 04:02:45 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/client.h"
 
-void handle_char(int pid, char c)
+void	handle_char(int pid, char c)
 {
-    int i;
-	int mod;
+	int	i;
+	int	mod;
 
-    i = 0;
+	i = 0;
 	mod = 0;
-    while (i < 8)
-    {
+	while (i < 8)
+	{
 		mod = c % 2;
-        if (mod)
+		if (mod)
 			kill(pid, SIGUSR1);
-        else
-            kill(pid, SIGUSR2);
-        i++;
+		else
+			kill(pid, SIGUSR2);
+		i++;
 		c = c / 2;
 		usleep(100);
-    }
+	}
 }
 
 void	send_msg(pid_t server_pid, char *msg)
@@ -46,13 +46,13 @@ void	send_msg(pid_t server_pid, char *msg)
 	handle_char(server_pid, '\n');
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	pid_t	server_pid;
-	                                                                                                                           
+
 	if (argc != 3)
 	{
-		ft_putstr_fd(2, "Program takes at least 2 arguments (Server PID and the message)!\n");
+		ft_putstr_fd(2, "Program take 2 arguments (Server PID and message)!\n");
 		exit(1);
 	}
 	server_pid = ft_atoi(argv[1]);

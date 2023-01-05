@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:19:16 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/28 02:05:45 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 04:04:50 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	check_long(long long number, char n, int sign)
 		is_long = 0;
 	return (is_long);
 }
-
 
 void	skip_sign_and_spaces(const char *str, int *index, int *sign)
 {

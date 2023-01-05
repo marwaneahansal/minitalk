@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 11:38:01 by mahansal          #+#    #+#             */
-/*   Updated: 2022/12/27 23:52:31 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 04:08:51 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putstr_fd(int fd, char *str)
 		while (*str)
 		{
 			ft_putchar_fd(fd, *str);
-			str++;			
+			str++;
 		}
 	}	
 }
