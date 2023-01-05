@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:55:12 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/05 04:28:40 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 09:00:46 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,6 @@ void	send_msg(pid_t server_pid, char *msg)
 	handle_char(server_pid, '\n');
 }
 
-void	send_pid(pid_t server_pid, char *msg)
-{
-	int		i;
-
-	i = 0;
-	while (msg[i])
-	{
-		handle_char(server_pid, msg[i]);
-		i++;
-	}
-	handle_char(server_pid, msg[i]);
-	handle_char(server_pid, '\n');
-}
-
 void	signal_handler(int signal)
 {
 	(void) signal;
@@ -72,7 +58,7 @@ void	signal_handler(int signal)
 	g_st.recived_signals++;
 	if (g_st.recived_signals == g_st.len * 8)
 	{
-		ft_putstr_fd(1, "\n Message sent successfully\n");
+		ft_putstr_fd(1, "\nMessage sent successfully\n");
 		exit(0);
 	}
 }

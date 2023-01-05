@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 11:38:01 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/05 04:08:51 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 08:42:07 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,10 @@ size_t	ft_strlen(char *str)
 	while (str[len])
 		len++;
 	return (len);
+}
+
+void	ft_show_error(char *str)
+{
+	ft_putstr_fd(2, str);
+	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:16 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/05 04:23:43 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 09:00:35 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	signal_handler(int signal, siginfo_t *info, void *other)
 {
 	static int	c;
 	static int	i;
-	static int	x;
+	static int	pow;
 
 	if (i == 0)
-		x = 1;
+		pow = 1;
 	if (signal == SIGUSR1)
-		c += x;
-	x *= 2;
+		c += pow;
+	pow *= 2;
 	i++;
 	if (i == 8)
 	{
@@ -30,7 +30,8 @@ void	signal_handler(int signal, siginfo_t *info, void *other)
 		c = 0;
 		i = 0;
 	}
-	kill(info->si_pid, SIGUSR1);
+	if (kill(info->si_pid, SIGUSR1) > 0)
+		ft_show_error("Failed to send a signal\n");
 	(void) other;
 }
 

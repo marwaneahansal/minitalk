@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:16 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/05 04:00:10 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/05 04:35:18 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	signal_handler(int signal)
 {
 	static int	c;
 	static int	i;
-	static int	x;
+	static int	pow;
 
 	if (i == 0)
-		x = 1;
+		pow = 1;
 	if (signal == SIGUSR1)
-		c += x * 1;
-	x *= 2;
+		c += pow * 1;
+	pow *= 2;
 	i++;
 	if (i == 8)
 	{
