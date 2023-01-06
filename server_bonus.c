@@ -6,11 +6,13 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:16 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/05 09:00:35 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/06 03:45:03 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/server.h"
+
+int	g_is_sig_recive;
 
 void	signal_handler(int signal, siginfo_t *info, void *other)
 {
@@ -30,7 +32,7 @@ void	signal_handler(int signal, siginfo_t *info, void *other)
 		c = 0;
 		i = 0;
 	}
-	if (kill(info->si_pid, SIGUSR1) > 0)
+	if (kill(info->si_pid, SIGUSR1))
 		ft_show_error("Failed to send a signal\n");
 	(void) other;
 }
