@@ -6,7 +6,7 @@
 /*   By: mahansal <mahansal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 02:08:07 by mahansal          #+#    #+#             */
-/*   Updated: 2023/01/05 04:02:45 by mahansal         ###   ########.fr       */
+/*   Updated: 2023/01/07 00:40:18 by mahansal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,15 @@ void	handle_char(int pid, char c)
 	{
 		mod = c % 2;
 		if (mod)
-			kill(pid, SIGUSR1);
+		{
+			if (kill(pid, SIGUSR1))
+				ft_show_error("Failed to send a signal\n");
+		}
 		else
-			kill(pid, SIGUSR2);
+		{
+			if (kill(pid, SIGUSR2))
+				ft_show_error("Failed to send a signal\n");
+		}
 		i++;
 		c = c / 2;
 		usleep(100);
